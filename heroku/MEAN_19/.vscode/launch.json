@@ -1,0 +1,61 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "name": "啟動",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceRoot}/server.js",
+        "stopOnEntry": false,
+        "args": [],
+        "cwd": "${workspaceRoot}",
+        "preLaunchTask": null,
+        "runtimeExecutable": null,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "env": {
+            "NODE_ENV": "development"
+        },
+        "externalConsole": false,
+        "sourceMaps": false,
+        "outDir": null
+    }, {
+        "name": "附加",
+        "type": "node",
+        "request": "attach",
+        "port": 5858,
+        "address": "localhost",
+        "restart": false,
+        "sourceMaps": false,
+        "outDir": null,
+        "localRoot": "${workspaceRoot}",
+        "remoteRoot": null
+    }, {
+        "name": "Attach to Process",
+        "type": "node",
+        "request": "attach",
+        "processId": "${command.PickProcess}",
+        "port": 5858,
+        "sourceMaps": false,
+        "outDir": null
+    }, {
+        "name": "Chrome Attach",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000/#/",
+        "webRoot": "${workspaceRoot}/public",
+        "sourceMaps": false,
+        "diagnosticLogging": true,
+        "runtimeArgs": [
+            "--new-window", //Open in new window
+            "--user-data-dir=remote-profile",
+            "--remote-debugging-port=9222" //Open in port 9222 (standard chrome debug port)
+        ]
+    }, {
+        "name": "Launch app.js (without sourcemaps)",
+        "type": "chrome",
+        "request": "launch",
+        "file": "${workspaceRoot}/public/views/index.html"
+    }]
+
+}

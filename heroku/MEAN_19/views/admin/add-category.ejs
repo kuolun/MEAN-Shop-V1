@@ -1,0 +1,47 @@
+<head>
+    <title>AngularJS Shop SPA</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <!-- 本身CSS -->
+    <link rel="stylesheet" href="css/mean-retail.css" />
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <!--BootStrap social button-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css">
+    <style>
+        html,
+        body,
+        input,
+        select,
+        textarea {
+            font-size: 1.05em !important;
+        }
+    </style>
+</head>
+<div class="row">
+  <div class="col-lg-6 col-md-offset-3">
+
+    <% if (message.length > 0) { %>
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismmiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= message %>
+      </div>
+    <% } %>
+
+    <form method="post">
+
+      <h1> Add a new Category </h1>
+      <div class="form-group">
+        <label="name">Name: </label>
+        <input type="text" class="form-control" name="name">
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+  </div>
+</div>

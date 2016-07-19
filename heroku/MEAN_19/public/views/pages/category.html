@@ -1,0 +1,24 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" id="navbar-gap">
+  <div class="container">
+    <h1> Shop Smart, Save Big!</h1>
+    <p class="text-center">Search many of Ecommerce's products</p>
+    <search-bar></search-bar>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" ng-repeat="product in products">
+      <a ng-href="#/product/{{product._id}}">
+        <div class="thumbnail">
+          <img ng-src="{{product.image}}">
+          <div class="caption">
+            <h4>{{product.name}}</h4>
+            <p>{{product.category.name}}</p>
+            <p>${{product.price}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

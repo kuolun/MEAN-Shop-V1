@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+             </button>
+            <!--回首頁注意,要使用#/-->
+            <a class="navbar-brand" href="#/">Ecommerce</a>
+        </div>
+
+
+        <!--search-->
+        <!--<form class="navbar-form navbar-left" method="post" action="/search">
+            <div class="form-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>-->
+
+        <ul class="nav navbar-nav navbar-right">
+            <dropdown-categories></dropdown-categories>
+
+            <!-- 購物車圖案 -->
+            <li ng-if="user.user">
+                <a href="#/cart" class="glyphicon glyphicon-shopping-cart "><span class="badge">{{sum()}}</span></a>
+            </li>
+
+            <li ng-show="!user.user"><a href="#/cart" class="glyphicon glyphicon-shopping-cart"><span class="badge">0</span></a></li>
+
+
+            <!-- 已login，使用者FB大頭貼 -->
+            <li ng-show="user.user">
+                <a ng-href="#/profile">
+                    <img ng-src="{{user.user.profile.picture}}" />
+                </a>
+            </li>
+
+            <!-- 如果尚未login，顯示fb login  -->
+            <li ng-show="!user.user">
+                <a href="/auth/facebook">
+                    <i class="fa fa-facebook"></i> Sign In
+                </a>
+            </li>
+
+            <!--如果有登入 顯示logout button-->
+            <li ng-show="user.user">
+                <a href="/logout">
+                    <i class="fa fa-sign-out "></i>Sign Out
+                </a>
+            </li>
+
+            <li>
+                <a href="#/"><i class="fa fa-home"></i> Home</a>
+            </li>
+
+        </ul>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>

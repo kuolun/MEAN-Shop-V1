@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShopApp">
+
+<head>
+
+    <title>MEAN Stack ShopApp</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <!--BootStrap social button-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css">
+    <!--custom css-->
+    <link rel="stylesheet" href="/css/custom.css">
+
+
+
+    <style>
+        html,
+        body,
+        input,
+        select,
+        textarea {
+            font-size: 1.05em !important;
+        }
+    </style>
+    <!-- load angular via CDN -->
+    <script src="http://code.angularjs.org/1.5.7/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.5.7/angular-route.min.js"></script>
+    <script src="http://code.angularjs.org/1.5.7/angular-resource.min.js"></script>
+
+    <!--BootStrap需jQuery(<3.0)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--BootStrap JS-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- include service file -->
+    <script src="services/user.js"></script>
+    <script src="services/search.js"></script>
+
+    <!-- Angulau File -->
+    <script src="js/app.js"></script>
+    <script src="js/app.routes.js"></script>
+    <script src="js/directives.js"></script>
+
+    <!--Stripe file-->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+
+</head>
+
+<body>
+    <!--導覽-->
+    <nav-bar></nav-bar>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <!-- MAIN CONTENT AND INJECTED VIEWS -->
+            <!-- 內容 -->
+            <div class="container">
+                <ng-View></ng-View>
+                <!--</div>-->
+                <hr>
+                <footer>
+                    <p>&copy; 2016 Company, Inc.</p>
+                </footer>
+            </div>
+        </div>
+        <!-- /container -->
+
+</body>
+
+</html>

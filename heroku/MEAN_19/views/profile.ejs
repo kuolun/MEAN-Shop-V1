@@ -1,0 +1,67 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>AngularJS Shop SPA</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <!-- 本身CSS -->
+    <link rel="stylesheet" href="css/mean-retail.css" />
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <!--BootStrap social button-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css">
+    <style>
+        html,
+        body,
+        input,
+        select,
+        textarea {
+            font-size: 1.05em !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- 導覽列 -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">AngularJS Shopping Cart</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right col-md-2">
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="page-header text-center">
+            <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+            
+        </div>
+        <div class="row">
+
+            <!-- FACEBOOK INFORMATION -->
+            <div class="col-sm-6 col-md-4">
+                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+                <p>
+                    <img src="<%=user.profile.picture%>" alt="" class="img-circle img-responsive img-center">
+                    <strong>id</strong>:<%=user.facebook %> <br>
+                    <strong>email</strong>:<%=user.email%><br>
+                    <strong>name</strong>:<%=user.profile.username%>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
