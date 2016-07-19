@@ -18,7 +18,7 @@ function setupAuth(User, app, Config) {
     //serializeUser的結果會attach到session變成
     //req.session.passport.user = {id:'xyz'}
     //done是strategy內部實作
-    passport.serializeUser(function (user, done) {
+    passport.serializeUser(function(user, done) {
         done(null, user._id);
     });
 
@@ -26,9 +26,9 @@ function setupAuth(User, app, Config) {
     //找到user後會回復成req.user
     //所以每個request都會有req.user的資料
     //所以在api更新購物車那邊就會有user的資料
-    passport.deserializeUser(function (id, done) {
+    passport.deserializeUser(function(id, done) {
         // User.findOne({ _id: id }).exec(done);
-        User.findById(id, function (err, user) {
+        User.findById(id, function(err, user) {
             done(err, user);
         });
     });
@@ -37,24 +37,26 @@ function setupAuth(User, app, Config) {
     //Facebook authentication works using OAuth 2.0
     // 設定FB auth strategy--使用FB帳號跟OAuth token來驗證user
     passport.use(new FacebookStrategy({
-        // clientID: process.env.FACEBOOK_CLIENT_ID,
-        clientID: '1035056279864779',
-        // clientID: Config.facebookClientId,
-        // clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        clientSecret: '7c35c679194c13abc9b381f7fa5f5f69',
-        // clientSecret: Config.facebookClientSecret,
-        callbackURL: 'http://localhost:3000/auth/facebook/callback',
-        // Necessary for new version of Facebook graph API
-        profileFields: ['id', 'emails', 'name']
-    },  //strategy的verify callback
+            // clientID: process.env.FACEBOOK_CLIENT_ID,
+            clientID: '1035056279864779',
+            // clientID: Config.facebookClientId,
+            // clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+            clientSecret: '7c35c679194c13abc9b381f7fa5f5f69',
+            // clientSecret: Config.facebookClientSecret,
+            callbackURL: 'https://mean-shop-v1.herokuapp.com/auth/facebook/callback',
+            // Necessary for new version of Facebook graph API
+            profileFields: ['id', 'emails', 'name']
+        }, //strategy的verify callback
         //done也是callback,要傳入user來完成認證
         //profile會有use的FB資料(上面設定的id/email/name欄位)
-        function (token, refreshToken, profile, done) {
+        function(token, refreshToken, profile, done) {
             // asynchronous
-            process.nextTick(function () {
+            process.nextTick(function() {
                 //如果profile的email存在,就用profile的is去DB新增一筆user data
                 // find the user in the database based on their facebook id
-                User.findOne({ facebook: profile.id }, function (err, user) {
+                User.findOne({
+                    facebook: profile.id
+                }, function(err, user) {
 
                     // if there is an error, stop everything and return that
                     // ie an error connecting to the database
@@ -78,7 +80,7 @@ function setupAuth(User, app, Config) {
                         newUser.profile.picture = 'https://graph.facebook.com' + profile.id + '/picture?type=large';
 
                         // save our user to the database
-                        newUser.save(function (err) {
+                        newUser.save(function(err) {
                             if (err) {
                                 throw err;
                             }
@@ -109,4 +111,3 @@ function setupAuth(User, app, Config) {
 
 
 }
-
